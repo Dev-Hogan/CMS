@@ -26,7 +26,7 @@ body {
 .login-card .card-body {
   display: flex;
 }
-.login-card .card-body .img-left {
+.login-card .card-body .login-cover {
   width: 339px;
   height: 358px;
 }
