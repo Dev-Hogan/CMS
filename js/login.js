@@ -34,12 +34,19 @@ function toggleForm() {
 //表单校验
 const [loginForm, registerForm] = document.querySelectorAll(".user-form");
 //登录表单
-loginForm.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit",async (e) => {
   e.preventDefault();
   //校验表单
   validDate(loginForm);
   //调用接口
-  console.log("调用接口成功");
+  const [usernameInput, passwordInput] = loginForm.querySelectorAll("input");
+
+  const res = await axios.post("/api/login", {
+    username: usernameInput.value,
+    password: passwordInput.value,
+  });
+  toastr.success(res.data.message);
+  console.log("登录结果", res.data.message);
 });
 //注册表单
 registerForm.addEventListener("submit", async (e) => {
@@ -54,7 +61,9 @@ registerForm.addEventListener("submit", async (e) => {
     password: passwordInput.value,
   });
   toastr.success(res.data.message);
-  console.log("注册结果", res.data.message);
+    console.log("注册结果", res.data.message);
+    //切换到登录页面
+    toggleForm();
 });
 //检验表单函数
 function validDate(form) {
