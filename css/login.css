@@ -18,6 +18,17 @@ body {
   line-height: 60px;
   color: #d2e2e0;
 }
+.login-card .card-body {
+  display: flex;
+}
+.login-card .card-body .img-left {
+  width: 339px;
+  height: 358px;
+}
+.login-card .card-body .user-form {
+  flex-grow: 1;
+  margin-left: 52px;
+}
 
 .logo {
   width: 130px;

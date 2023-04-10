@@ -17,6 +17,20 @@ body{
                 line-height: 60px;
                 color: #d2e2e0;
             }
+            .card-body {
+                display: flex;
+
+                .img-left {
+                    width: 339px;
+                    height: 358px;
+
+                }
+
+                .user-form {
+                    flex-grow:1;
+                    margin-left: 52px;
+                }
+            }
         }
 
         .logo {
