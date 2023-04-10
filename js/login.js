@@ -1,3 +1,7 @@
+//配置axios默认地址
+axios.defaults.baseURL = "http://www.itcbc.com:8000";
+
+
 //切换注册表单与登录表单
 //给两个按钮绑定切换事件
 const [loginToggle, registerToggle] = document.querySelectorAll(".toggle-form");
@@ -20,13 +24,19 @@ loginForm.addEventListener("submit", (e) => {
   //调用接口
   console.log("调用接口成功");
 });
-//注册表单校验
-registerForm.addEventListener("submit", (e) => {
+//注册表单
+registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   //校验表单
   validDate(registerForm);
   //调用接口
-  console.log("调用接口成功");
+  const [usernameInput, passwordInput] = registerForm.querySelectorAll("input");
+    
+  const res = await  axios.post("/api/register", {
+      username: usernameInput.value,
+      password: passwordInput.value,
+  });
+  console.log('注册结果',res.data.message);
 });
 //检验表单函数
 function validDate(form) {
