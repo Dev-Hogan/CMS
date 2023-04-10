@@ -42,6 +42,29 @@
                     <button type="button" class="btn btn-link text-start">还没有账号，去注册</button>
                 </div>
             </form>
+            <!-- 用户注册表单 -->
+            <form class="user-form d-block has-validation">
+                <h4 class="mb-4">欢迎注册</h4>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="floatingInput2" placeholder="用户名" required>
+                    <label for="floatingInput2">用户名</label>
+                    <div class="invalid-feedback">
+                        用户名不能为空
+                    </div>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword2" placeholder="密码" required>
+                    <label for="floatingPassword2">密码</label>
+                    <div class="invalid-feedback">
+                        密码不能为空
+                    </div>
+                </div>
+                <!-- 登录按钮 -->
+                <div class="d-grid gap-2 mt-4">
+                    <button class="btn btn-primary" type="submit">注册</button>
+                    <button type="button" class="btn btn-link text-start">已有账号，去登陆</button>
+                </div>
+            </form>
         </div>
     </div>
 
