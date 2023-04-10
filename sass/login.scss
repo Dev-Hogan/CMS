@@ -1,40 +1,47 @@
-body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #2b2e3e;
-        }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2b2e3e;
+}
 
-        .login-card {
-            width: 800px;
-            border: 0;
-            .card-header {
-                display: flex;
-                align-items: center;
-                background-color: #2746b1;
-                font-size: 24px;
-                line-height: 60px;
-                color: #d2e2e0;
-            }
-            .card-body {
-                display: flex;
+//登录注册卡片
+.login-card {
+    width: 800px;
+    border: 0;
 
-                .img-left {
-                    width: 339px;
-                    height: 358px;
+    //卡片头部
+    .card-header {
+        display: flex;
+        align-items: center;
+        background-color: #2746b1;
+        font-size: 24px;
+        line-height: 60px;
+        color: #d2e2e0;
 
-                }
-
-                .user-form {
-                    flex-grow:1;
-                    margin-left: 52px;
-                }
-            }
-        }
-
+        //头部左边的logo
         .logo {
             width: 130px;
             height: 38px;
             margin-right: 20px;
         }
+    }
+
+    //卡片内容
+    .card-body {
+        display: flex;
+
+        //左边图片
+        .img-left {
+            width: 339px;
+            height: 358px;
+        }
+
+        //右边用户输入表单
+        .user-form {
+            flex-grow: 1;
+            margin-left: 52px;
+        }
+    }
+}
