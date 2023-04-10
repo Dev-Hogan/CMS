@@ -12,11 +12,19 @@ function toggleForm() {
 
 //表单校验
 const [loginForm, registerForm] = document.querySelectorAll(".user-form");
-//监听表单
+//登录表单
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   //校验表单
   validDate(loginForm);
+  //调用接口
+  console.log("调用接口成功");
+});
+//注册表单校验
+registerForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  //校验表单
+  validDate(registerForm);
   //调用接口
   console.log("调用接口成功");
 });
