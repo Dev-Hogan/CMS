@@ -1,6 +1,7 @@
 //配置axios默认地址
 axios.defaults.baseURL = "http://www.itcbc.com:8000";
-
+//配置状态弹窗位置
+toastr.options.positionClass = "toast-top-center";
 
 //切换注册表单与登录表单
 //给两个按钮绑定切换事件
@@ -31,12 +32,13 @@ registerForm.addEventListener("submit", async (e) => {
   validDate(registerForm);
   //调用接口
   const [usernameInput, passwordInput] = registerForm.querySelectorAll("input");
-    
-  const res = await  axios.post("/api/register", {
-      username: usernameInput.value,
-      password: passwordInput.value,
+
+  const res = await axios.post("/api/register", {
+    username: usernameInput.value,
+    password: passwordInput.value,
   });
-  console.log('注册结果',res.data.message);
+  toastr.success(res.data.message);
+  console.log("注册结果", res.data.message);
 });
 //检验表单函数
 function validDate(form) {
