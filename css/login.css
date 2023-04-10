@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #2b2e3e;
+}
+
+.login-card {
+  width: 800px;
+  border: 0;
+}
+.login-card .card-header {
+  display: flex;
+  align-items: center;
+  background-color: #2746b1;
+  font-size: 24px;
+  line-height: 60px;
+  color: #d2e2e0;
+}
+
+.logo {
+  width: 130px;
+  height: 38px;
+  margin-right: 20px;
+}
