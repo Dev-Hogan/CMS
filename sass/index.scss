@@ -31,18 +31,10 @@ body {
         .child-menu {
             height: 0;
             overflow: hidden;
-            transform-origin: top left;
-            transform: scaleY(0);
             transition: all 0.3s;
             background-color: red;
         }
 
-        /* 下拉菜单动画效果 */
-        .open {
-            transform-origin: top left;
-            height: 100%;
-            transform: scaleY(100%);
-        }
 
     }
 }

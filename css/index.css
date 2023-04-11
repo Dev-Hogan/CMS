@@ -23,7 +23,6 @@ body {
   cursor: pointer;
   padding-right: 30px;
   /* 下拉动画 */
-  /* 下拉菜单动画效果 */
 }
 .left-menu .menu-container > li + li {
   margin-top: 8px;
@@ -31,15 +30,8 @@ body {
 .left-menu .menu-container .child-menu {
   height: 0;
   overflow: hidden;
-  transform-origin: top left;
-  transform: scaleY(0);
   transition: all 0.3s;
   background-color: red;
-}
-.left-menu .menu-container .open {
-  transform-origin: top left;
-  height: 100%;
-  transform: scaleY(100%);
 }
 
 /*右边内容 */
