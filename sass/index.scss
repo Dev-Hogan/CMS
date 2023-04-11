@@ -27,12 +27,22 @@ body {
             margin-top: 8px;
         }
 
-        /* 下拉动画 */
+        /* 下拉菜单动画 */
         .child-menu {
             height: 0;
             overflow: hidden;
             transition: all 0.3s;
-            background-color: red;
+            text-align: center;
+            line-height: 35px;
+            font-size: 13px;
+            color: #fff;
+            a {
+                padding:8px 30px 8px 0 ;
+                color: #8391a2;
+                font-size: 13px;
+                text-decoration: none;
+                height: 35px;
+            }
         }
 
 

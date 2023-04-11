@@ -22,7 +22,7 @@ body {
   list-style: none;
   cursor: pointer;
   padding-right: 30px;
-  /* 下拉动画 */
+  /* 下拉菜单动画 */
 }
 .left-menu .menu-container > li + li {
   margin-top: 8px;
@@ -31,7 +31,17 @@ body {
   height: 0;
   overflow: hidden;
   transition: all 0.3s;
-  background-color: red;
+  text-align: center;
+  line-height: 35px;
+  font-size: 13px;
+  color: #fff;
+}
+.left-menu .menu-container .child-menu a {
+  padding: 8px 30px 8px 0;
+  color: #8391a2;
+  font-size: 13px;
+  text-decoration: none;
+  height: 35px;
 }
 
 /*右边内容 */
