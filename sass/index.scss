@@ -2,10 +2,12 @@ body {
     display: flex;
     height: 100vh;
 }
+
 /*左边菜单*/
 .left-menu {
     width: 240px;
     background-color: #313a46;
+
     /* 图片logo */
     >.logo {
         display: block;
@@ -13,19 +15,40 @@ body {
         width: 148px;
         height: 40px;
     }
+
     /* 菜单内容 */
-    .menu-container  {
-        color: #fff;
-       > li {
-         display: flex;
-         justify-content: space-between;
-         list-style: none;
-         padding-right: 30px;
-       }
+    .menu-container {
+        color: #8391a2;
+        list-style: none;
+        cursor: pointer;
+        padding-right: 30px;
+
+        >li+li {
+            margin-top: 8px;
+        }
+
+        /* 下拉动画 */
+        .child-menu {
+            height: 0;
+            overflow: hidden;
+            transform-origin: top left;
+            transform: scaleY(0);
+            transition: all 0.3s;
+            background-color: red;
+        }
+
+        /* 下拉菜单动画效果 */
+        .open {
+            transform-origin: top left;
+            height: 100%;
+            transform: scaleY(100%);
+        }
+
     }
 }
 
+
 /*右边内容 */
 .main-content {
-    flex-grow:1;
+    flex-grow: 1;
 }

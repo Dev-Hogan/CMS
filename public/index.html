@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,27 +10,41 @@
     <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
+
 <body>
     <nav class="left-menu">
         <img class="logo" src="http://www.itcbc.com:8888/assets/images/logo2.png" alt="logo">
         <ul class="menu-container">
             <li>
-                <div>
-                    <i class="bi bi-graph-up-arrow"></i>
-                    控制面板
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <i class="bi bi-graph-up-arrow"></i>
+                        控制面板
+                    </div>
+                    <i class="bi bi-chevron-down"></i>
                 </div>
-                <i class="bi bi-chevron-down"></i>
+                <div class="child-menu">
+                    图表概览
+                </div>
             </li>
             <li>
-                <div>
-                    <i class="bi bi-people"></i>
-                    学员管理
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <i class="bi bi-people"></i>
+                        学员管理
+                    </div>
+                    <i class="bi bi-chevron-down"></i>
                 </div>
-                <i class="bi bi-chevron-down"></i>
+                <div class="child-menu">
+                    <a class="d-block">学员信息</a>
+                    <a class="d-block">成绩录入</a>
+                </div>
             </li>
         </ul>
     </nav>
     <main class="main-content">右边内容</main>
     <script src="../vendor/bootstrap.bundle.js"></script>
+    <script src="../js/index.js"></script>
 </body>
+
 </html>
