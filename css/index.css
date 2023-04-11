@@ -32,16 +32,17 @@ body {
   overflow: hidden;
   transition: all 0.3s;
   text-align: center;
-  line-height: 35px;
-  font-size: 13px;
-  color: #fff;
+  line-height: 30px;
 }
 .left-menu .menu-container .sub-menu a {
   padding: 8px 30px 8px 0;
   color: #8391a2;
   font-size: 13px;
   text-decoration: none;
-  height: 35px;
+}
+.left-menu .menu-container .sub-menu a.active {
+  color: #fff;
+  background-color: #313d4d;
 }
 
 /*右边内容 */
