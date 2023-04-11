@@ -1,0 +1,33 @@
+@charset "UTF-8";
+body {
+  display: flex;
+  height: 100vh;
+}
+
+/*左边菜单*/
+.left-menu {
+  width: 240px;
+  background-color: #313a46;
+  /* 图片logo */
+  /* 菜单内容 */
+}
+.left-menu > .logo {
+  display: block;
+  margin: 20px auto;
+  width: 148px;
+  height: 40px;
+}
+.left-menu .menu-container {
+  color: #fff;
+}
+.left-menu .menu-container > li {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-right: 30px;
+}
+
+/*右边内容 */
+.main-content {
+  flex-grow: 1;
+}

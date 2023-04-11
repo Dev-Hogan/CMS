@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    height: 100vh;
+}
+/*左边菜单*/
+.left-menu {
+    width: 240px;
+    background-color: #313a46;
+    /* 图片logo */
+    >.logo {
+        display: block;
+        margin: 20px auto;
+        width: 148px;
+        height: 40px;
+    }
+    /* 菜单内容 */
+    .menu-container  {
+        color: #fff;
+       > li {
+         display: flex;
+         justify-content: space-between;
+         list-style: none;
+         padding-right: 30px;
+       }
+    }
+}
+
+/*右边内容 */
+.main-content {
+    flex-grow:1;
+}
