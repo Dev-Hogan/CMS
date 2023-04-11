@@ -7,24 +7,32 @@
     <title>Document</title>
     <style>
         div {
+            overflow: hidden;
             height: 0;
             background-color: red;
-            transition: transform .3s;
-            transform: scaleY(0);
+            transition: height .3s;
         }
 
-        .open {
-            transform: scaleY(1);
-        }
+ 
     </style>
 </head>
 <body>
     <button>点击展开动画</button>
-    <div></div>
+    <div>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+    </div>
     <script>
         const btn = document.querySelector('button')
         btn.addEventListener('click',()=>{
-            btn.nextElementSibling.classList.toggle('open');
+            const div= btn.nextElementSibling
+            div.style.height = div.style.height===''?div.scrollHeight + 'px' :''
         })
     </script>
 </body>
