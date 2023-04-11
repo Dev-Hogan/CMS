@@ -27,6 +27,18 @@ body {
 .left-menu .menu-container > li + li {
   margin-top: 8px;
 }
+.left-menu .menu-container .level-1-menu {
+  line-height: 1.5;
+  /* 图标旋转动画 */
+  /* 动画效果 */
+}
+.left-menu .menu-container .level-1-menu .bi-chevron-right {
+  transform: none;
+  transition: transform 0.15s;
+}
+.left-menu .menu-container .level-1-menu.active .bi-chevron-right {
+  transform: rotate(90deg);
+}
 .left-menu .menu-container .sub-menu {
   height: 0;
   overflow: hidden;
@@ -39,6 +51,7 @@ body {
   color: #8391a2;
   font-size: 13px;
   text-decoration: none;
+  /* 高亮 */
 }
 .left-menu .menu-container .sub-menu a.active {
   color: #fff;

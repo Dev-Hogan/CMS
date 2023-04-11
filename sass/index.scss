@@ -27,6 +27,21 @@ body {
             margin-top: 8px;
         }
 
+        .level-1-menu {
+            line-height: 1.5;
+            /* 图标旋转动画 */
+            .bi-chevron-right {
+                transform:none;
+                transition:transform .15s;
+            }
+            /* 动画效果 */
+            &.active {
+                .bi-chevron-right {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+
         /* 下拉菜单动画 */
         .sub-menu {
             height: 0;
@@ -39,7 +54,7 @@ body {
                 color: #8391a2;
                 font-size: 13px;
                 text-decoration: none;
-                // height: 35px;
+                /* 高亮 */
                 &.active {
                     color: #fff;
                     background-color: #313d4d;
