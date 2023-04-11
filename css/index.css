@@ -27,7 +27,7 @@ body {
 .left-menu .menu-container > li + li {
   margin-top: 8px;
 }
-.left-menu .menu-container .child-menu {
+.left-menu .menu-container .sub-menu {
   height: 0;
   overflow: hidden;
   transition: all 0.3s;
@@ -36,7 +36,7 @@ body {
   font-size: 13px;
   color: #fff;
 }
-.left-menu .menu-container .child-menu a {
+.left-menu .menu-container .sub-menu a {
   padding: 8px 30px 8px 0;
   color: #8391a2;
   font-size: 13px;
