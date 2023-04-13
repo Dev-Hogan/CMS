@@ -1,0 +1,13 @@
+body {
+  padding: 16px;
+  background-color: #f1f1f1;
+}
+
+.page-header {
+  padding: 16px;
+  background-color: #fff;
+}
+
+.page-header > h4 {
+  margin-bottom: 0;
+}
