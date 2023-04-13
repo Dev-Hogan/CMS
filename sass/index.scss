@@ -1,73 +1,84 @@
 body {
-    display: flex;
-    height: 100vh;
+  display: flex;
+  height: 100vh;
+  background-color: #f1f1f1;
 }
 
 /*左边菜单*/
 .left-menu {
-    width: 240px;
-    background-color: #313a46;
+  width: 240px;
+  background-color: #313a46;
 
-    /* 图片logo */
-    >.logo {
-        display: block;
-        margin: 20px auto;
-        width: 148px;
-        height: 40px;
+  /* 图片logo */
+  > .logo {
+    display: block;
+    margin: 20px auto;
+    width: 148px;
+    height: 40px;
+  }
+
+  /* 菜单内容 */
+  .menu-container {
+    color: #8391a2;
+    list-style: none;
+    cursor: pointer;
+    padding-right: 30px;
+
+    > li + li {
+      margin-top: 8px;
     }
 
-    /* 菜单内容 */
-    .menu-container {
+    .level-1-menu {
+      line-height: 1.5;
+      /* 图标旋转动画 */
+      .bi-chevron-right {
+        transform: none;
+        transition: transform 0.15s;
+      }
+      /* 动画效果 */
+      &.active {
+        .bi-chevron-right {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    /* 下拉菜单动画 */
+    .sub-menu {
+      height: 0;
+      overflow: hidden;
+      transition: all 0.3s;
+      text-align: center;
+      line-height: 30px;
+      a {
+        padding: 8px 30px 8px 0;
         color: #8391a2;
-        list-style: none;
-        cursor: pointer;
-        padding-right: 30px;
-
-        >li+li {
-            margin-top: 8px;
+        font-size: 13px;
+        text-decoration: none;
+        /* 高亮 */
+        &.active {
+          color: #fff;
+          background-color: #313d4d;
         }
-
-        .level-1-menu {
-            line-height: 1.5;
-            /* 图标旋转动画 */
-            .bi-chevron-right {
-                transform:none;
-                transition:transform .15s;
-            }
-            /* 动画效果 */
-            &.active {
-                .bi-chevron-right {
-                    transform: rotate(90deg);
-                }
-            }
-        }
-
-        /* 下拉菜单动画 */
-        .sub-menu {
-            height: 0;
-            overflow: hidden;
-            transition: all 0.3s;
-            text-align: center;
-            line-height: 30px;
-            a {
-                padding:8px 30px 8px 0 ;
-                color: #8391a2;
-                font-size: 13px;
-                text-decoration: none;
-                /* 高亮 */
-                &.active {
-                    color: #fff;
-                    background-color: #313d4d;
-                }
-            }
-        }
-
-
+      }
     }
+  }
 }
-
 
 /*右边内容 */
 .main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* 顶栏 */
+  .globalnav {
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%), inset 0 -1px 0 rgb(255 255 255 / 15%);
+  }
+
+  /* 页面内容 */
+  .page-content {
     flex-grow: 1;
+  }
 }
