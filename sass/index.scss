@@ -8,9 +8,11 @@ body {
 .left-menu {
   width: 240px;
   background-color: #313a46;
-
+  .left-menu-hide {
+    width: 240px;
+  }
   /* 图片logo */
-  >.logo {
+  .logo {
     display: block;
     margin: 20px auto;
     width: 148px;
@@ -67,6 +69,16 @@ body {
       }
     }
   }
+
+  
+}
+/* 整体菜单隐藏动画 */
+.left-menu {
+  transition: width .3s;
+  overflow: hidden;
+  &.hide {
+    width: 0;
+  }
 }
 
 /*右边内容 */
@@ -90,6 +102,7 @@ body {
     /* 左边拖动按钮 */
     .nav-left>i {
       font-size: 30px;
+      cursor: pointer;
     }
 
     /* 右边工具栏 */
@@ -126,8 +139,6 @@ body {
         .text {
           margin-left: 10px;
         }
-
-
       }
     }
   }

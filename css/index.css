@@ -12,7 +12,10 @@ body {
   /* 图片logo */
   /* 菜单内容 */
 }
-.left-menu > .logo {
+.left-menu .left-menu-hide {
+  width: 240px;
+}
+.left-menu .logo {
   display: block;
   margin: 20px auto;
   width: 148px;
@@ -59,6 +62,15 @@ body {
   background-color: #313d4d;
 }
 
+/* 整体菜单隐藏动画 */
+.left-menu {
+  transition: width 0.3s;
+  overflow: hidden;
+}
+.left-menu.hide {
+  width: 0;
+}
+
 /*右边内容 */
 .main-content {
   flex-grow: 1;
@@ -81,6 +93,7 @@ body {
 }
 .main-content .globalnav .nav-left > i {
   font-size: 30px;
+  cursor: pointer;
 }
 .main-content .globalnav .nav-tool {
   display: flex;

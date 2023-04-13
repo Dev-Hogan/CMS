@@ -9,3 +9,10 @@ const level1Menus = document.querySelectorAll('.level-1-menu');
     subMenu.style.height = subMenu.style.height === '' ? subMenu.scrollHeight + 'px': ''
   })
 })
+
+//折叠左边整体菜单栏
+const hideMenu = document.querySelector('.nav-left')
+hideMenu.addEventListener('click', () => {
+  const left = document.querySelector('.left-menu')
+  left.classList.toggle('hide')
+})
