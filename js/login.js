@@ -1,5 +1,5 @@
 // 配置toastr位置，顶部中间
-toastr.options.positionClass = "toast-top-center";
+// toastr.options.positionClass = "toast-top-center";
 
 // 写一个函数，切换表单
 function toggleForm() {
