@@ -68,7 +68,7 @@ loginForm.addEventListener("submit", async (e) => {
   });
   // 等待接口成功，提示用户
   toastr.success("登录成功");
-  console.log(res);
+  // console.log(res);
   localStorage.setItem("token", res.data.token);
   location.href = "index.html";
 });
