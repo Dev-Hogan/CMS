@@ -71,6 +71,45 @@ body {
   height: 70px;
   background-color: #fff;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+  /* 左边拖动按钮 */
+  /* 右边工具栏 */
+}
+.main-content .globalnav .nav-left > i {
+  font-size: 30px;
+}
+.main-content .globalnav .nav-tool {
+  display: flex;
+  align-items: center;
+}
+.main-content .globalnav .nav-tool .logout {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+.main-content .globalnav .nav-tool .logout .user {
+  display: flex;
+  align-items: center;
+}
+.main-content .globalnav .nav-tool .logout .user .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.main-content .globalnav .nav-tool .logout .out {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+}
+.main-content .globalnav .nav-tool .logout .out i {
+  font-size: 22px;
+}
+.main-content .globalnav .nav-tool .logout .text {
+  margin-left: 10px;
 }
 .main-content .page-content {
   flex-grow: 1;

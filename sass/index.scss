@@ -10,7 +10,7 @@ body {
   background-color: #313a46;
 
   /* 图片logo */
-  > .logo {
+  >.logo {
     display: block;
     margin: 20px auto;
     width: 148px;
@@ -24,17 +24,19 @@ body {
     cursor: pointer;
     padding-right: 30px;
 
-    > li + li {
+    >li+li {
       margin-top: 8px;
     }
 
     .level-1-menu {
       line-height: 1.5;
+
       /* 图标旋转动画 */
       .bi-chevron-right {
         transform: none;
         transition: transform 0.15s;
       }
+
       /* 动画效果 */
       &.active {
         .bi-chevron-right {
@@ -50,11 +52,13 @@ body {
       transition: all 0.3s;
       text-align: center;
       line-height: 30px;
+
       a {
         padding: 8px 30px 8px 0;
         color: #8391a2;
         font-size: 13px;
         text-decoration: none;
+
         /* 高亮 */
         &.active {
           color: #fff;
@@ -70,11 +74,62 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+
   /* 顶栏 */
   .globalnav {
     height: 70px;
     background-color: #fff;
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%), inset 0 -1px 0 rgb(255 255 255 / 15%);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%),
+      inset 0 -1px 0 rgb(255 255 255 / 15%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    /* 左边拖动按钮 */
+    .nav-left>i {
+      font-size: 30px;
+    }
+
+    /* 右边工具栏 */
+    .nav-tool {
+      display: flex;
+      align-items: center;
+
+      .logout {
+        display: flex;
+        align-items: center;
+        margin-left: 16px;
+
+        .user {
+          display: flex;
+          align-items: center;
+
+          .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+          }
+        }
+
+        .out {
+          margin-left: 16px;
+          display: flex;
+          align-items: center;
+
+          i {
+            font-size: 22px;
+          }
+        }
+
+        .text {
+          margin-left: 10px;
+        }
+
+
+      }
+    }
   }
 
   /* 页面内容 */
