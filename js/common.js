@@ -1,4 +1,3 @@
-
 // 配置axios公共基地址
 axios.defaults.baseURL = "http://www.itcbc.com:8000";
 // 添加响应拦截器
@@ -21,6 +20,19 @@ axios.interceptors.response.use(
     toastr.error(error.response.data.message);
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
+    if (error.response.status === 401) {
+      localStorage.removeItem('token')
+      setTimeout(() => {
+        
+        if (!window.parentPageFlag) {
+          //子页面身份失效
+          parent.location.href = 'login.html'
+        } else {
+          //父页面身份失效
+          location.href = "login.html"; 
+        }
+      },1500)
+    }
     return Promise.reject(error);
   }
 );

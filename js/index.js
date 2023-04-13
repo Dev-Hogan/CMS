@@ -31,3 +31,6 @@ confirmLogout.addEventListener("click", () => {
   location.href = "login.html";
   modal.hide();
 });
+
+//父页面添加退出跳转表记
+window.parentPageFlag = true
