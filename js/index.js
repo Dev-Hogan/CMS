@@ -16,3 +16,4 @@ hideMenu.addEventListener('click', () => {
   const left = document.querySelector('.left-menu')
   left.classList.toggle('hide')
 })
+

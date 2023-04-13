@@ -1,3 +1,4 @@
+
 // 配置axios公共基地址
 axios.defaults.baseURL = "http://www.itcbc.com:8000";
 // 添加响应拦截器
@@ -23,3 +24,20 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+// 添加请求拦截器
+axios.interceptors.request.use(
+  function (config) {
+    // 在发送请求之前做些什么
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = token;
+    }
+    return config;
+  },
+  function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error);
+  }
+);
+// 配置toastr位置，顶部中间
+toastr.options.positionClass = "toast-top-center";
