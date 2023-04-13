@@ -70,7 +70,7 @@ loginForm.addEventListener("submit", async (e) => {
   toastr.success("登录成功");
   console.log(res);
   localStorage.setItem("token", res.data.token);
-  location.href = "../public/index.html";
+  location.href = "index.html";
 });
 
 // 处理注册表单的提交

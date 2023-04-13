@@ -17,3 +17,12 @@ hideMenu.addEventListener('click', () => {
   left.classList.toggle('hide')
 })
 
+//退出登录
+const logout = document.querySelector('.out')
+logout.addEventListener('click', () => {
+  //用户确认
+  if (confirm('您确定退出登录吗？')) {
+    localStorage.removeItem('token')
+    location.href='login.html'
+  }
+ })

@@ -117,6 +117,7 @@ body {
   margin-left: 16px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .main-content .globalnav .nav-tool .logout .out i {
   font-size: 22px;
