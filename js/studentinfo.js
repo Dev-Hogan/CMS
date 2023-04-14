@@ -38,4 +38,53 @@ async function renderProvince() {
 }
 renderProvince()
 
+//选择省份渲染市县
+province.addEventListener('change', () => {
+    const provinceName = province.value
+    console.log(provinceName);
+    renderCity(provinceName)
+})
 
+//渲染市区
+async function renderCity(province) {
+    if (province !== '--省--') {
+        console.log("@@@", province);
+        const city =  await axios.get("/geo/city", {
+          params: {
+            pname: province
+          },
+        });
+        const opt = city.data.map(
+          (city) => `<option value="${city}" selected>${city}</option>`
+        );
+        opt.unshift(`<option value="--市--" selected>--市--</option>`);
+        const cityDom = document.querySelector("#city");
+        cityDom.innerHTML = opt.join('')
+    }
+}
+//渲染县区
+const cityDom = document.querySelector("#city");
+cityDom.addEventListener('change', () => {
+    const cityName = cityDom.value;
+    const provinceName = document.querySelector("#province").value
+    renderArea(provinceName, cityName);
+
+})
+async function renderArea(province, city) {
+    const areaDom = document.querySelector("#area");
+  if (city !== "--市--") {
+    const area = await axios.get("/geo/county", {
+      params: {
+            pname: province,
+            cname: city
+      },
+    });
+    const opt = area.data.map(
+      (area) => `<option value="${area}" selected>${area}</option>`
+    );
+    opt.unshift(`<option value="1" selected>--县--</option>`);
+    areaDom.innerHTML = opt.join("");
+  } else {
+    areaDom.innerHTML = "<option value='--县--' selected>--县--</option>";
+  }
+}
