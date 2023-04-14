@@ -34,3 +34,13 @@ confirmLogout.addEventListener("click", () => {
 
 //父页面添加退出跳转表记
 window.parentPageFlag = true
+
+//初始化数据
+const initDate = document.querySelector("#initDate");
+initDate.addEventListener("click", async () => { 
+  await axios.get("/init/data").then((res) => {
+    toastr.success("初始化数据成功");
+    console.log(res.data);
+  })
+    
+  });

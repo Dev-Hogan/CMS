@@ -7,6 +7,7 @@ axios.interceptors.response.use(
     if (response.data.code === 1) {
       // 接口是失败的
       // 提示用户
+      console.log(1, response.data.message);
       toastr.error(response.data.message);
       // 你可以返回一个失败的Promise，阻止接口正常返回
       // Promise.reject()表示创建一个失败的Promise

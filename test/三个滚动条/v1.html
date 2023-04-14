@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>三个区域，三个滚动条</title>
+    <style>
+        html,
+        body,
+        .container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .left-sidebar {
+            width: 200px;
+            height: 100%;
+            overflow-y: scroll;
+        }
+
+        .right-sidebar {
+            width: 200px;
+            height: 100%;
+            overflow-y: scroll;
+        }
+
+        .main {
+            flex: 1;
+            height: 100%;
+            overflow-y: scroll;
+        }
+
+        .footer {
+            height: 50px;
+            background-color: #ddd;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-sidebar">
+            <h2>Sidebar</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vestibulum pulvinar urna ac cursus. Praesent
+                eget nulla et dolor tempor posuere. Mauris aliquam, quam in vehicula bibendum, mauris nibh mattis
+                mauris, ac elementum sapien tortor et tellus. Fusce quis maximus metus. Nam quis pulvinar metus. Fusce
+                convallis ipsum at porta rhoncus.</p>
+            <p>Integer convallis ipsum in sapien mollis, sed mattis mi tempor. Nullam porttitor arcu feugiat risus
+                fringilla, quis malesuada sapien euismod. Sed et lobortis lectus. Vestibulum lobortis vitae enim eu
+                aliquam. Praesent eu placerat velit, quis lobortis est. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia Curae; Curabitur in vestibulum eros. Duis dictum tincidunt pretium.
+            </p>
+            <p>Nunc tincidunt euismod sapien, vitae consequat leo aliquam nec. Aliquam ac sapien feugiat, elementum
+                nulla a, bibendum tortor. Mauris vestibulum dolor ac risus pulvinar, ut tempor erat ultricies. Nullam
+                condimentum libero sit amet sem sollicitudin laoreet. Duis eu dapibus urna. Curabitur fermentum orci a
+                libero laciniapp </p>
+        </div>
+        <div class="right-sidebar">
+            <h2>Sidebar</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vestibulum pulvinar urna ac cursus. Praesent
+                eget nulla et dolor tempor posuere. Mauris aliquam, quam in vehicula bibendum, mauris nibh mattis
+                mauris, ac elementum sapien tortor et tellus. Fusce quis maximus metus. Nam quis pulvinar metus. Fusce
+                convallis ipsum at porta rhoncus.</p>
+            <p>Integer convallis ipsum in sapien mollis, sed mattis mi tempor. Nullam porttitor arcu feugiat risus
+                fringilla, quis malesuada sapien euismod. Sed et lobortis lectus. Vestibulum lobortis vitae enim eu
+                aliquam. Praesent eu placerat velit, quis lobortis est. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia Curae; Curabitur in vestibulum eros. Duis dictum tincidunt pretium.
+            </p>
+            <p>Nunc tincidunt euismod sapien, vitae consequat leo aliquam nec. Aliquam ac sapien feugiat, elementum
+                nulla a, bibendum tortor. Mauris vestibulum dolor ac risus pulvinar, ut tempor erat ultricies. Nullam
+                condimentum libero sit amet sem sollicitudin laoreet. Duis eu dapibus urna. Curabitur fermentum orci a
+                libero laciniapp </p>
+        </div>
+        <div class="main">
+            <h2>Main Content</h2>
+            <p>Curabitur lobortis luctus magna, scelerisque lobortis magna tincidunt a. Integer finibus mauris purus, at
+                consequat ipsum tempor nec. Proin ullamcorper metus eu semper rutrum. Donec non urna eget nulla auctor
+                semper nec vel enim. Maecenas hendrerit erat et lectus pulvinar, gravida mattis nibh ullamcorper. Nulla
+                facilisi. Praesent malesuada, libero eu efficitur tincidunt, nulla quam blandit arcu, non varius sapien
+                ipsum et justo.</p>
+            <p>Etiam vel nisl fermentum, facilisis nisi in, bibendum nibh. Aenean euismod auctor bibendum. Nulla sit
+                amet velit nec nisl posuere rhoncus. Quisque ligula mauris, sodales vel mauris nec, viverra tempus
+                velit. Donec ultricies rutrum quam interdum consectetur. Fusce consequat pretium ante, ut mattis purus
+                imperdiet id. Sed malesuada lectus nec malesuada dictum. Pellentesque lobortis ornare bibendum. Duis et
+                arcu eget dolor lacinia pulvinar. Aliquam varius mauris eu elit rhoncus, in vestibulum leo mollis.
+                Maecenas placerat rhoncus felis at porta.</p>
+            <p>Sed velit neque, volutpat molestie convallis quis, pretium eget tellus. Morbi eu dui imperdiet, blandit
+                massa nec, faucibus est. Nunc id turpis eleifend, lobortis nibh eu, commodo nunc. Aliquam tincidunt
+                libero in eros blandit, sed tristique augue posuere. Vivamus at elementum enim. Suspendisse eu velit sit
+                amet sem faucibus ultrices. Donec vitae orci eu augue rutrum maximus eu eget ante. Aenean bibendum sem
+                vitae felis tempor vestibulum. Sed in nisl odio. Suspendisse potenti. </p>
+        </div>
+    </div>
+    <div class="footer">
+        <h2>Footer</h2>
+        <p>Proin id odio congue, elementum sapien ut, efficitur est. Integer nec augue eu velit fringilla tristique.
+            Praesent eget suscipit ligula. Cras eu velit eros. Vestibulum leo arcu, accumsan a laoreet quis, sagittis
+            vel sapien. In risus orci, auctor non dolor sed, interdum vehicula erat. Nam tristique ipsum turpis, eu
+            sollicitudin dolor iaculis commodo. Aliquam bibendum tincidunt tellus ac imperdiet.</p>
+    </div>
+</body>
+
+</html>
