@@ -13,7 +13,7 @@ async function render () {
                   .map(
                     (score, index) =>
                       `<td class="student-score" data-id="${id}" data-batch="${index+1}" >${
-                        score === null ? "-" : score
+                        score === null ? "暂无数据" : score
                       }</td>`
                   )
                   .join("")}

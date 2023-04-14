@@ -42,5 +42,15 @@ initDate.addEventListener("click", async () => {
     toastr.success("初始化数据成功");
     console.log(res.data);
   })
-    
-  });
+});
+  
+//切换学员信息或成绩
+const menuContainer = document.querySelector(".menu-container");
+menuContainer.addEventListener("click", ({ target }) => {
+  if (target.classList.contains("menu-item")) {
+    const active = menuContainer.querySelector(".menu-item");
+    console.log(active);
+    menuContainer.querySelector(".menu-item.active").classList.remove("active");
+    target.classList.add('active')
+  }
+})

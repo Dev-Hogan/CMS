@@ -28,11 +28,3 @@ async function render() {
 
 render()
 
-//  ${student.score
-//                   .map(
-//                     (score, index) =>
-//                       `<td class="student-score" data-id="${id}" data-batch="${
-//                         index + 1
-//                       }" >${score === null ? "-" : score}</td>`
-//                   )
-//                   .join("")}
