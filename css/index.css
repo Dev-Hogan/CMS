@@ -127,4 +127,8 @@ body {
 }
 .main-content .page-content {
   flex-grow: 1;
+  display: none;
+}
+.main-content .page-content.active {
+  display: block;
 }

@@ -1,0 +1,27 @@
+ body {
+     padding: 16px;
+     background-color: #f1f1f1;
+ }
+
+ .page-header {
+     padding: 16px;
+     background-color: #fff;
+ }
+
+ .page-header>h4 {
+     margin-bottom: 0;
+ }
+
+ .student-score {
+     position: relative;
+
+     >input {
+         position: absolute;
+         top: 0;
+         left: 0;
+         bottom: 0;
+         right: 0;
+         border: 0;
+         outline: none;
+     }
+ }

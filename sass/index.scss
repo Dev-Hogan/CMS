@@ -146,5 +146,9 @@ body {
   /* 页面内容 */
   .page-content {
     flex-grow: 1;
+    display: none;
+    &.active {
+      display: block;
+    }
   }
 }

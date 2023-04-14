@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学生成绩</title>
+    <title>学生信息</title>
     <link rel="stylesheet" href="../vendor/bootstrap.css">
     <link rel="stylesheet" href="../vendor/toastr.css">
-    <link rel="stylesheet" href="../css/score.css">
+    <link rel="stylesheet" href="../css/studentinfo.css">
 </head>
+
 <body>
     <div class="page-header d-flex justify-content-between align-items-center">
-        <h4>学生成绩</h4>
-        <span>点击表格修改或录入</span>
+        <h4>学员信息</h4>
+        <button class="btn btn-primary">添加学员</button>
     </div>
     <table class="table mt-3 table-striped table-bordered">
-        <thead>
+        <thead class="table-group-divider">
             <tr>
                 <th scope="col">学员ID</th>
                 <th scope="col">姓名</th>
-                <th scope="col">第1次成绩</th>
-                <th scope="col">第2次成绩</th>
-                <th scope="col">第3次成绩</th>
-                <th scope="col">第4次成绩</th>
-                <th scope="col">第5次成绩</th>
+                <th scope="col">年龄</th>
+                <th scope="col">性别</th>
+                <th scope="col">组号</th>
+                <th scope="col">联系电话</th>
+                <th scope="col">期望薪资</th>
+                <th scope="col">实际薪资</th>
+                <th scope="col">籍贯</th>
+                <th scope="col">操作</th>
             </tr>
-        </thead class="table-group-divider">
+        </thead>
         <tbody class="table-group-divider">
-            
+
         </tbody>
     </table>
     <script src="../vendor/bootstrap.bundle.js"></script>
@@ -35,6 +40,7 @@
     <script src="../vendor/jquery.js"></script>
     <script src="../vendor/toastr.min.js"></script>
     <script src="../js/common.js"></script>
-    <script src="../js/score.js"></script>
+    <script src="../js/studentinfo.js"></script>
 </body>
+
 </html>
