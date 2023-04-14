@@ -11,3 +11,16 @@ body {
 .page-header > h4 {
   margin-bottom: 0;
 }
+
+.student-score {
+  position: relative;
+}
+.student-score > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  outline: none;
+}

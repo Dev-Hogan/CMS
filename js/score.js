@@ -9,7 +9,7 @@ async function render () {
       html += `<tr>
                 <th scope="row">${id}</th>
                 <td>${student.name}</td>
-                ${student.score.map((score) => `<td>${score===null?'-':score}</td>`).join("")}
+                ${student.score.map((score) => `<td class="student-score" >${score===null?'-':score}</td>`).join("")}
             </tr>`;
     }
     tbody.innerHTML = html;
