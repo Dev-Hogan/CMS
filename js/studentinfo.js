@@ -25,6 +25,17 @@ async function render() {
   }
   tbody.innerHTML = html;
 }
-
 render()
+
+//渲染省份
+const province = document.querySelector("#province");
+async function renderProvince() {
+    const res = await axios.get("/geo/province")
+    const opt = res.data.map(
+      (province) => `<option value="${province}" selected>${province}</option>`
+    ).join('')
+    province.insertAdjacentHTML('beforeend', opt)
+}
+renderProvince()
+
 
