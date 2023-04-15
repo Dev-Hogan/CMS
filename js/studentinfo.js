@@ -15,10 +15,14 @@ async function render() {
                 <td>${student.phone}</td>
                 <td>${student.salary}</td>
                 <td>${student.truesalary}</td>
-                <td>${student.province}</td>
+                <td>${student.province + student.city}</td>
                 <td>
-                    <button data-type="modify" data-id="${student.id}" class="btn btn-primary">修改</button>
-                    <button data-type="delete" data-id="${student.id}" class="btn btn-danger">删除</button>
+                    <button data-type="modify" data-id="${
+                      student.id
+                    }" class="btn btn-primary">修改</button>
+                    <button data-type="delete" data-id="${
+                      student.id
+                    }" class="btn btn-danger">删除</button>
                 </td>
                
             </tr>`;
@@ -88,25 +92,31 @@ async function renderArea(province, city) {
   }
 }
 
-//上传添加学员数据
+//上传添加或修改学员数据
 const saveBtn = document.querySelector("#saveBtn");
 const studentForm = document.querySelector("#studentForm");
 const modal = bootstrap.Modal.getOrCreateInstance("#exampleModal");
-saveBtn.addEventListener("click", async () => {
+saveBtn.addEventListener("click", async ({target}) => {
   const fd = new FormData(studentForm);
-  const res = await axios.post(
-    "/student/add",
-    Array.from(fd).reduce((acc, [key, val]) => {
+  const formDate =  Array.from(fd).reduce((acc, [key, val]) => {
       acc[key] = val;
       return acc;
-    }, {})
-  );
+    },{})
+  const id = target.dataset.id
+  if (id) {
+    formDate.id = id
+    const res = await axios.put("/student/update", formDate);
+    toastr.success(res.data.message);
+  } else {
+    const res = await axios.post("/student/add", formDate);
+    toastr.success(res.data.message);
+  }
+
   modal.hide();
-  toastr.success(res.data.message);
   render();
 });
 
-//关闭保存和重置清空表单
+//关闭，保存和重置清空表单
 const addStudent = document.querySelector("#addStudent");
 addStudent.addEventListener("click", () => {
   delete saveBtn.dataset.id;
