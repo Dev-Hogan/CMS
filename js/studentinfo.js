@@ -5,7 +5,7 @@ async function render() {
   const Date = res.data.data;
   console.log(Date, typeof Date);
   let html = "";
-  for (const  student of Date) {
+  for (const student of Date) {
     html += `<tr>
                 <th scope="row">${student.id}</th>
                 <td>${student.name}</td>
@@ -17,66 +17,65 @@ async function render() {
                 <td>${student.truesalary}</td>
                 <td>${student.province}</td>
                 <td>
-                    <button class="btn btn-primary">修改</button>
-                    <button class="btn btn-danger">删除</button>
+                    <button data-type="modify" data-id="${student.id}" class="btn btn-primary">修改</button>
+                    <button data-type="delete" data-id="${student.id}" class="btn btn-danger">删除</button>
                 </td>
                
             </tr>`;
   }
   tbody.innerHTML = html;
 }
-render()
+render();
 
 //渲染省份
 const province = document.querySelector("#province");
 async function renderProvince() {
-    const res = await axios.get("/geo/province")
-    const opt = res.data.map(
-      (province) => `<option value="${province}" >${province}</option>`
-    ).join('')
-    province.insertAdjacentHTML('beforeend', opt)
+  const res = await axios.get("/geo/province");
+  const opt = res.data
+    .map((province) => `<option value="${province}" >${province}</option>`)
+    .join("");
+  province.insertAdjacentHTML("beforeend", opt);
 }
-renderProvince()
+renderProvince();
 
 //选择省份渲染市县
-province.addEventListener('change', () => {
-    const provinceName = province.value
-    console.log(provinceName);
-    renderCity(provinceName)
-})
+province.addEventListener("change", () => {
+  const provinceName = province.value;
+  console.log(provinceName);
+  renderCity(provinceName);
+});
 
 //渲染市区
 async function renderCity(province) {
-    if (province !== '--省--') {
-        console.log("@@@", province);
-        const city =  await axios.get("/geo/city", {
-          params: {
-            pname: province
-          },
-        });
-        const opt = city.data.map(
-          (city) => `<option value="${city}">${city}</option>`
-        );
-        opt.unshift(`<option value="--市--" selected>--市--</option>`);
-        const cityDom = document.querySelector("#city");
-        cityDom.innerHTML = opt.join('')
-    }
+  if (province !== "--省--") {
+    console.log("@@@", province);
+    const city = await axios.get("/geo/city", {
+      params: {
+        pname: province,
+      },
+    });
+    const opt = city.data.map(
+      (city) => `<option value="${city}">${city}</option>`
+    );
+    opt.unshift(`<option value="--市--" selected>--市--</option>`);
+    const cityDom = document.querySelector("#city");
+    cityDom.innerHTML = opt.join("");
+  }
 }
 //渲染县区
 const cityDom = document.querySelector("#city");
-cityDom.addEventListener('change', () => {
-    const cityName = cityDom.value;
-    const provinceName = document.querySelector("#province").value
-    renderArea(provinceName, cityName);
-
-})
+cityDom.addEventListener("change", () => {
+  const cityName = cityDom.value;
+  const provinceName = document.querySelector("#province").value;
+  renderArea(provinceName, cityName);
+});
 async function renderArea(province, city) {
-    const areaDom = document.querySelector("#area");
+  const areaDom = document.querySelector("#area");
   if (city !== "--市--") {
     const area = await axios.get("/geo/county", {
       params: {
-            pname: province,
-            cname: city
+        pname: province,
+        cname: city,
       },
     });
     const opt = area.data.map(
@@ -92,23 +91,95 @@ async function renderArea(province, city) {
 //上传添加学员数据
 const saveBtn = document.querySelector("#saveBtn");
 const studentForm = document.querySelector("#studentForm");
-const modal = bootstrap.Modal.getOrCreateInstance('#exampleModal');
+const modal = bootstrap.Modal.getOrCreateInstance("#exampleModal");
 saveBtn.addEventListener("click", async () => {
   const fd = new FormData(studentForm);
-  const res = await axios.post("/student/add", Array.from(fd).reduce((acc, [key, val]) => {
-    acc[key] = val
-    return acc
-  }, {}))
-  modal.hide()
+  const res = await axios.post(
+    "/student/add",
+    Array.from(fd).reduce((acc, [key, val]) => {
+      acc[key] = val;
+      return acc;
+    }, {})
+  );
+  modal.hide();
   toastr.success(res.data.message);
   render();
-})
+});
 
 //关闭保存和重置清空表单
 const addStudent = document.querySelector("#addStudent");
-addStudent.addEventListener("click", clearForm)
+addStudent.addEventListener("click", () => {
+  updateModalText("录入新学员", "确认添加");
+  clearForm();
+});
 const restBtn = document.querySelector("#restBtn");
 restBtn.addEventListener("click", clearForm);
 function clearForm() {
-  studentForm.reset()
+  studentForm.reset();
+}
+
+//修改弹窗
+tbody.addEventListener("click", modifyStudent);
+function modifyStudent({ target }) {
+  const { type } = target.dataset;
+  if (type === "modify") {
+    modal.show();
+    clearForm();
+    updateModalText("修改学员", "保存修改");
+    backfillStudent(target);
+  }
+}
+function updateModalText(title, btn) {
+  document.querySelector("#exampleModalLabel").innerText = title;
+  saveBtn.innerText = btn;
+}
+async function backfillStudent(target) {
+  const res = await axios.get("/student/one", {
+    params: {
+      id: target.dataset.id,
+    },
+  });
+  const student = res.data.data;
+  console.log(student);
+  updateInputText(student);
+}
+function updateInputText(student) {
+  const inputs = studentForm.querySelectorAll("[name]");
+  for (const input of inputs) {
+    const name = input.getAttribute("name");
+    if (name in student && name !== "sex") {
+      input.value = student[name];
+    }
+  }
+  updateSex("sex", student.sex);
+  updateSelect("group", student.group);
+  updateSelect("province", student.province);
+  renderCity(student.province);
+  renderArea(student.province, student.city);
+  setTimeout(() => {
+    updateSelect("city", student.city);
+    updateSelect("county", student.county);
+  }, 150);
+}
+function updateSex(name, value) {
+  const radioList = document.querySelectorAll(`input[name=${name}]`);
+  radioList.forEach((radio) => {
+    if (radio.value === value) {
+      radio.checked = true;
+      console.log(radio.value, 1);
+      console.log(value, 2);
+    } else {
+      radio.checked = false;
+    }
+  });
+}
+function updateSelect(name, value) {
+  const select = document.querySelector(`select[name=${name}]`);
+  const options = select.options;
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].value === value) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
 }
