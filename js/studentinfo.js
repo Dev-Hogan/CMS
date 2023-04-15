@@ -32,7 +32,7 @@ const province = document.querySelector("#province");
 async function renderProvince() {
     const res = await axios.get("/geo/province")
     const opt = res.data.map(
-      (province) => `<option value="${province}" selected>${province}</option>`
+      (province) => `<option value="${province}" >${province}</option>`
     ).join('')
     province.insertAdjacentHTML('beforeend', opt)
 }
@@ -55,7 +55,7 @@ async function renderCity(province) {
           },
         });
         const opt = city.data.map(
-          (city) => `<option value="${city}" selected>${city}</option>`
+          (city) => `<option value="${city}">${city}</option>`
         );
         opt.unshift(`<option value="--市--" selected>--市--</option>`);
         const cityDom = document.querySelector("#city");
@@ -80,7 +80,7 @@ async function renderArea(province, city) {
       },
     });
     const opt = area.data.map(
-      (area) => `<option value="${area}" selected>${area}</option>`
+      (area) => `<option value="${area}" >${area}</option>`
     );
     opt.unshift(`<option value="1" selected>--县--</option>`);
     areaDom.innerHTML = opt.join("");
