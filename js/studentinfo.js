@@ -127,11 +127,16 @@ function modifyStudent({ target }) {
     clearForm();
     updateModalText("修改学员", "保存修改");
     backfillStudent(target);
+    updateBtnId(target.dataset.id)
   }
 }
 function updateModalText(title, btn) {
   document.querySelector("#exampleModalLabel").innerText = title;
   saveBtn.innerText = btn;
+}
+function updateBtnId(id) {
+  const changeBtn = document.querySelector("#saveBtn");
+  changeBtn.dataset.id = id
 }
 async function backfillStudent(target) {
   const res = await axios.get("/student/one", {
@@ -143,7 +148,7 @@ async function backfillStudent(target) {
   console.log(student);
   updateInputText(student);
 }
-function updateInputText(student) {
+async function updateInputText(student) {
   const inputs = studentForm.querySelectorAll("[name]");
   for (const input of inputs) {
     const name = input.getAttribute("name");
@@ -151,23 +156,24 @@ function updateInputText(student) {
       input.value = student[name];
     }
   }
-  updateSex("sex", student.sex);
+  /*
+ //tch的选择单选框
+ const radios = studentForm.querySelectorAll('input[type=radio]')
+  const radio = [...radios].find(radio => radio.value === student.sex)
+  radio.checked = true */
+  // updateSex("sex", student.sex);
   updateSelect("group", student.group);
   updateSelect("province", student.province);
-  renderCity(student.province);
-  renderArea(student.province, student.city);
-  setTimeout(() => {
-    updateSelect("city", student.city);
-    updateSelect("county", student.county);
-  }, 150);
+  await renderCity(student.province);
+  await renderArea(student.province, student.city);
+  updateSelect("city", student.city);
+  updateSelect("county", student.county);
 }
 function updateSex(name, value) {
   const radioList = document.querySelectorAll(`input[name=${name}]`);
   radioList.forEach((radio) => {
     if (radio.value === value) {
       radio.checked = true;
-      console.log(radio.value, 1);
-      console.log(value, 2);
     } else {
       radio.checked = false;
     }
