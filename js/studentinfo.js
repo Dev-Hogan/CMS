@@ -97,7 +97,9 @@ saveBtn.addEventListener("click", async () => {
   const res = await axios.post("/student/add", Array.from(fd).reduce((acc, [key, val]) => {
     acc[key] = val
     return acc
-  },{}))
+  }, {}))
+  const modal = bootstrap.Modal.getOrCreateInstance('#exampleModal');
+  modal.hide()
   toastr.success(res.data.message);
   render();
 })
