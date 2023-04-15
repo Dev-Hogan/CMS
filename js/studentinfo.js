@@ -129,7 +129,7 @@ function clearForm() {
   studentForm.reset();
 }
 
-//修改弹窗
+//修改及删除弹窗
 tbody.addEventListener("click", modifyStudent);
 const deleteModal = bootstrap.Modal.getOrCreateInstance("#deleteModal");
 function modifyStudent({ target }) {
