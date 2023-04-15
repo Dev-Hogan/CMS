@@ -109,6 +109,7 @@ saveBtn.addEventListener("click", async () => {
 //关闭保存和重置清空表单
 const addStudent = document.querySelector("#addStudent");
 addStudent.addEventListener("click", () => {
+  delete saveBtn.dataset.id;
   updateModalText("录入新学员", "确认添加");
   clearForm();
 });
@@ -121,27 +122,27 @@ function clearForm() {
 //修改弹窗
 tbody.addEventListener("click", modifyStudent);
 function modifyStudent({ target }) {
-  const { type } = target.dataset;
+  const { type,id } = target.dataset;
   if (type === "modify") {
     modal.show();
     clearForm();
     updateModalText("修改学员", "保存修改");
-    backfillStudent(target);
-    updateBtnId(target.dataset.id)
+    backfillStudent(id);
+    modifyBtnId(id);
   }
 }
 function updateModalText(title, btn) {
   document.querySelector("#exampleModalLabel").innerText = title;
   saveBtn.innerText = btn;
 }
-function updateBtnId(id) {
+function modifyBtnId(id) {
   const changeBtn = document.querySelector("#saveBtn");
-  changeBtn.dataset.id = id
+  changeBtn.dataset.id = id;
 }
-async function backfillStudent(target) {
+async function backfillStudent(id) {
   const res = await axios.get("/student/one", {
     params: {
-      id: target.dataset.id,
+      id
     },
   });
   const student = res.data.data;
