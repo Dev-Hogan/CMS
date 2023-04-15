@@ -91,15 +91,24 @@ async function renderArea(province, city) {
 
 //上传添加学员数据
 const saveBtn = document.querySelector("#saveBtn");
+const studentForm = document.querySelector("#studentForm");
+const modal = bootstrap.Modal.getOrCreateInstance('#exampleModal');
 saveBtn.addEventListener("click", async () => {
-  const studentForm = document.querySelector("#studentForm");
   const fd = new FormData(studentForm);
   const res = await axios.post("/student/add", Array.from(fd).reduce((acc, [key, val]) => {
     acc[key] = val
     return acc
   }, {}))
-  const modal = bootstrap.Modal.getOrCreateInstance('#exampleModal');
   modal.hide()
   toastr.success(res.data.message);
   render();
 })
+
+//关闭保存和重置清空表单
+const addStudent = document.querySelector("#addStudent");
+addStudent.addEventListener("click", clearForm)
+const restBtn = document.querySelector("#restBtn");
+restBtn.addEventListener("click", clearForm);
+function clearForm() {
+  studentForm.reset()
+}
