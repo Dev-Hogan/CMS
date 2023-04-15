@@ -131,6 +131,7 @@ function clearForm() {
 
 //修改弹窗
 tbody.addEventListener("click", modifyStudent);
+const deleteModal = bootstrap.Modal.getOrCreateInstance("#deleteModal");
 function modifyStudent({ target }) {
   const { type,id } = target.dataset;
   if (type === "modify") {
@@ -139,6 +140,10 @@ function modifyStudent({ target }) {
     updateModalText("修改学员", "保存修改");
     backfillStudent(id);
     modifyBtnId(id);
+  } else if (type === "delete") {
+    deleteModal.show()
+    const deleteConfirm = document.querySelector("#deleteConfirm");
+    deleteConfirm.addEventListener("click", ()=>deleteStudent(id));
   }
 }
 function updateModalText(title, btn) {
@@ -199,4 +204,14 @@ function updateSelect(name, value) {
       break;
     }
   }
+}
+async function deleteStudent(id) {
+  const res = await axios.delete("/student/delete", {
+    params: {
+      id,
+    },
+  });
+  toastr.success(res.data.message);
+  deleteModal.hide()
+  render()
 }

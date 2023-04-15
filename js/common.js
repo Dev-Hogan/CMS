@@ -12,7 +12,7 @@ axios.interceptors.response.use(
       // 你可以返回一个失败的Promise，阻止接口正常返回
       // Promise.reject()表示创建一个失败的Promise
       return Promise.reject(new Error(response.data.message));
-    }
+    } 
     // 对响应数据做点什么
     return response;
   },
