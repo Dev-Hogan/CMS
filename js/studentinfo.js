@@ -88,3 +88,16 @@ async function renderArea(province, city) {
     areaDom.innerHTML = "<option value='--县--' selected>--县--</option>";
   }
 }
+
+//上传添加学员数据
+const saveBtn = document.querySelector("#saveBtn");
+saveBtn.addEventListener("click", async () => {
+  const studentForm = document.querySelector("#studentForm");
+  const fd = new FormData(studentForm);
+  const res = await axios.post("/student/add", Array.from(fd).reduce((acc, [key, val]) => {
+    acc[key] = val
+    return acc
+  },{}))
+  toastr.success(res.data.message);
+  render();
+})

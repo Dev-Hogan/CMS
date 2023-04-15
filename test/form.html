@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form>
+    <div>
+      <input type="text" name="famlilyName" placeholder="姓名">
+    </div>
+    <div>
+      性别<select name="gender">
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+    </div>
+    <div>
+      是否成年
+      <input type="radio" name="adult" value="是"> 是
+      <input type="radio" name="adult" value="否"> 否
+    </div>
+  </form>
+
+  <button>获取表单数据</button>
+  <script>
+    const btn = document.querySelector('button')
+    btn.addEventListener('click', () => {
+      const form = document.querySelector('form')
+      const fd = new FormData(form)
+      //方法一 数组变对象
+      const obj = {}
+      console.log(Array.from(fd,(val,key)=>{
+        return obj[key]=val
+      }))
+      //方法二
+      const arr = Array.from(fd)
+      arr.reduce((acc,[key,val])=>{
+        acc[key] = val
+        return acc
+      },{})
+      console.log('arr',arr);
+      //方法三
+      // console.log(Array.from(fd, val=>{
+      //   return {{},...{val[0]:val[1]}}
+      // }))
+
+ 
+      
+
+
+    })
+  </script>
+</body>
+
+</html>
